@@ -1,0 +1,8 @@
+.venv
+.sessions.json
+.claude
+**/__pycache__
+web/node_modules
+web/dist
+.git
+.env

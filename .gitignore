@@ -1,0 +1,17 @@
+# секреты и данные
+.env
+.env.*
+!.env.example
+.sessions.json
+guestbook.json
+guestbook.key
+
+# сборка и зависимости
+node_modules/
+web/dist/
+.venv/
+__pycache__/
+
+# локальное
+.DS_Store
+.claude/

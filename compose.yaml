@@ -1,0 +1,18 @@
+services:
+  site:
+    build: .
+    image: moe-raspisanie
+    ports:
+      # Доступ из локальной сети (телефон): SITE_HOST=0.0.0.0 в .env
+      - "${SITE_HOST:-127.0.0.1}:8000:8000"
+      # Порт 80 — чтобы открывать http://<имя>.local без :8000
+      - "${SITE_HOST:-127.0.0.1}:80:8000"
+    environment:
+      # Ключ мобильного приложения (необязательно): полный дневник без лимитов на отчёты.
+      NETSCHOOL_MOBILE_CLIENT_SECRET: ${NETSCHOOL_MOBILE_CLIENT_SECRET:-}
+    volumes:
+      - sessions:/data
+    restart: unless-stopped
+
+volumes:
+  sessions:
